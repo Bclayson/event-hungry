@@ -28,6 +28,7 @@ Start frontend server
 npm start
 ```
 
-Use Npm to install packages for both the frontend and backend. Ensure that all installations end with '--save'.
-
-
+Use bower to install new packages
+```
+bower install <package-name> --save
+```
