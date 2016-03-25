@@ -1,0 +1,145 @@
+    #home {
+        background: url("http://lh3.ggpht.com/tLk3LQqzM9PBfQp3ovJAxpLR2YHrHlc_I8nz6C_sjLUQM4Dyoul-UDiihfon-EPMYz9_tru8OTH1gJ_Qsiw=s620") no-repeat center center fixed;
+        height: 635px;
+        display: table;
+        position: relative;
+        width: 100%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        opacity: .60;
+    }
+    
+    #team {
+        background: url("https://images.unsplash.com/photo-1428988449731-1e5ccfb5b84f?crop=entropy&dpr=2&fit=crop&fm=jpg&h=675&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1275") no-repeat center center fixed;
+        height: auto;
+        display: table;
+        position: relative;
+        width: 100%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    
+    #catergories {
+        height: 600px;
+    }
+    
+    #listTitle {
+        font-family: 'Fredericka the Great', cursive;
+        font-size: 70px;
+        color: navy;
+    }
+    
+    #useTitle {
+        font-family: 'Fredericka the Great', cursive;
+        font-size: 40px;
+        color: navy;
+        padding-top: 16px;
+    }
+    
+    center {
+        color: white;
+        font-size: 30px;
+        font-family: 'Amatic SC', cursive;
+        padding-bottom: 10px;
+        padding-top: 5px;
+    }
+    
+    .text-vcenter {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+    
+    .text-vcenter h1 {
+        font-family: AllAges;
+        font-size: 140px;
+        color: black;
+    }
+    
+    #button {
+        color: grey;
+        font-family: AllAges;
+        font-size: 30px;
+        opacity: .65;
+        background-color: none;
+    }
+    
+    #aboutTitle {
+        font-family: 'Fredericka the Great', cursive;
+        text-align: center;
+        font-size: 70px;
+        color: navy;
+    }
+    
+    #videoText {
+        padding: 15px;
+    }
+    
+    #teamTitle {
+        text-align: center;
+        font-family: 'Fredericka the Great', cursive;
+        font-size: 70px;
+        color: navy;
+    }
+    
+    .profile {
+        opacity: .65;
+    }
+    
+    footer {
+        background-color: dimgray;
+        height: 100%;
+        position: relative;
+        width: 100%;
+        font-size: 15px;
+        font-family: AllAges;
+        color: white;
+        padding: 13px;
+    }
+    
+    .lead {
+        color: black;
+        font-size-adjust: 50px;
+        opacity: .40;
+    }
+    
+    #use .glyphicon {
+        border: 1px dashed black;
+        border-radius: 50%;
+        display: inline-block;
+        font-size: 60px;
+        height: 120px;
+        line-height: 120px;
+        text-align: center;
+        vertical-align: middle;
+        width: 120px;
+        opacity: .50;
+    }
+    
+    #use {
+        background-color: dimgray;
+        height: auto;
+        color: black;
+        height: auto;
+        padding-bottom: 16px;
+        padding: 10px;
+    }
+    
+    #use p {
+        font-size: 23px;
+        font-family: 'Amatic SC', cursive;
+    }
+    
+    #use h4 {
+        font-size: 28px;
+        font-family: AllAges;
+        color: navy;
+    }
+    
+    #movie {
+        z-index: -1;
+    }
