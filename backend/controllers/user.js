@@ -8,7 +8,7 @@ userRouter.route('/signup')
     .post(function (req, res) {
         var newUser = req.body;
         User.find({username: newUser.username}, function (error) {
-            
+
         })
     })
 
@@ -22,7 +22,7 @@ userRouter.route('/login')
             } else {
                 if (user.password == password) {
                     var token = jwt.sign(user, config.secret, {expiresIn: "24h"});
-                    res.send({token: token, success: true, message: "Here's your token!"})
+                    res.send({token: token, success: true, message: "JWT's authentication"})
                 } else {
                     res.status(401).send({success: false, message: "Incorrect password"})
                 }
