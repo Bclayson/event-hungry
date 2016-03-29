@@ -37,4 +37,13 @@ angular.module('myApp.view1', ['ngRoute'])
     $scope.submit = function (location, eventType) {
         
     }
+    
+    $scope.goToLogin = function () {
+        
+    }
+    
+    $scope.goToRegister = function () {
+        
+    }
+    
 }]);

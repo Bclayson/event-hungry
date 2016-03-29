@@ -23,8 +23,17 @@
         background-size: cover;
     }
     
-    #catergories {
-        height: 600px;
+    #categories {
+        background: url(https://snap-photos.s3.amazonaws.com/img-thumbs/960w/WUAUNU60VK.jpg) no-repeat center center fixed;
+        height: 580px;
+        margin-top: -6px;
+        display: table;
+        position: relative;
+        width: 100%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
     }
     
     #listTitle {
@@ -77,9 +86,12 @@
         margin-top: -550px;
     }
     
+/*
     #videoText {
         padding: 15px;
     }
+*/
+
     
     #teamTitle {
         text-align: center;
@@ -177,10 +189,8 @@
         font-family: 'Amatic SC', cursive;
         font-size: 30px;
         width: 200px;
-        background-color: #fff;
     }
     
     .submit-event:hover {
-        background-color: navy;
-        color: #fff;
+        background-color: lightgrey;
     }
