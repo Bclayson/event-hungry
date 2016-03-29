@@ -8,7 +8,16 @@ eventRouter.route('/')
 
     })
     .post(function(req, res) {
-
+        var newEvent = req.body
+        newEvent.user = req.user
+        Event.create(newEvent, function (err, createdEvent) {
+            if (err) {
+                res.status(500).send(err);
+            }
+            else {
+                res.send({success: true, event: createdEvent})
+            }
+        })
     })
 
 eventRouter.get('/:id')

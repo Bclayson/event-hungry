@@ -2,8 +2,7 @@ var mongoose = require('mongoose'),
     express = require('express'),
     User = require('../models/user'),
     _ = require('underscore-node'),
-    jwt = require('jsonwebtoken'),
-    expressJwt = require("express-jwt");
+    jwt = require('jsonwebtoken');
 
 var userRouter = express.Router();
 

@@ -6,7 +6,8 @@ var express = require('express'),
     cors = require('cors'),
     morgan = require('morgan'),
     middleware = require('./middleware');
-    config = require('./config');
+    config = require('./config'),
+    expressJwt = require("express-jwt");
 
 mongoose.connect(config.database)
 
