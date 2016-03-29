@@ -9,8 +9,8 @@ angular.module('myApp.view1', ['ngRoute'])
     });
 }])
 
-.controller('View1Ctrl', [function () {
-    
+.controller('View1Ctrl', ['$scope', function ($scope) {
+
     var eventSelect = {
         comedy: undefined,
         concerts: undefined,
@@ -22,15 +22,19 @@ angular.module('myApp.view1', ['ngRoute'])
         performingArts: undefined,
         sports: undefined
     }
-    
+
     $scope.eventSelect = eventSelect;
-    
+
     $scope.selectEventType = function (type) {
         $scope.eventSelect = _.mapObject(eventSelect, function (value, key) {
             if (key == type) {
-               return "btn-image:focus" //no idea if this is right.
+                return "btn-image"
             }
         })
+        console.log($scope.eventSelect)
     }
-    
+
+    $scope.submit = function (location, eventType) {
+        
+    }
 }]);

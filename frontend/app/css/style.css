@@ -66,6 +66,7 @@
         font-size: 30px;
         opacity: .65;
         background-color: none;
+        margin: -5px 10px;
     }
     
     #aboutTitle {
@@ -148,10 +149,17 @@
         margin-top: 20px;
     }
     
-    .btn-image:focus {
-        border: 3px solid navy;
+    .btn-image {
+        border: 6px solid navy;
     }
     
+    .type-image {
+        opacity: .80;
+    }
+    
+    .type-image:hover {
+        cursor: pointer;
+    }
     
     .name {
         position: absolute;
@@ -164,10 +172,15 @@
         font-weight: 200;
     }
     
-    .btn-image {
-        opacity: .80;
-    }
-    
     .submit-event {
         margin-top: 20px;
+        font-family: 'Amatic SC', cursive;
+        font-size: 30px;
+        width: 200px;
+        background-color: #fff;
+    }
+    
+    .submit-event:hover {
+        background-color: navy;
+        color: #fff;
     }

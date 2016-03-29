@@ -1,10 +1,9 @@
 <!-- home section -->
-
 <div id="home" class="home">
-
     <div class="text-vcenter">
         <h1>#EventHungry</h1>
-        <a href="#" class="btn btn-default btn-lg" id="button">Login Here</a>
+        <a href="#/login" class="btn btn-default btn-lg" id="button">Login</a>
+        <a href="#/register" class="btn btn-default btn-lg" id="button">Sign Up</a>
     </div>
 </div>
 
@@ -76,49 +75,49 @@
                         </div>
                     </div>
                     <div class="row center-block">
-                        <div ng-class="eventSelect.comedy" ng-click="selectEventType(comedy)" class="category-card col-xs-3">
-                            <img class="btn-image" src="images/comedysmall.jpg">
+                        <div ng-click="selectEventType('comedy')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.comedy" src="images/comedysmall.jpg">
                             <p class="name">#COMEDY</p>
                         </div>
-                        <div ng-class="eventSelect.concerts" ng-click="selectEventType(concerts)" class="category-card col-xs-3">
-                            <img class="btn-image" src="images/concertphoto.jpg">
+                        <div ng-click="selectEventType('concerts')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.concerts" src="images/concertphoto.jpg">
                             <p class="name">#CONCERTS</p>
                         </div>
-                        <div ng-class="eventSelect.conferences" ng-click="selectEventType(conferences)" class="category-card col-xs-3">
-                            <img class="btn-image" src="images/conference.jpg">
+                        <div ng-click="selectEventType('conferences')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.conferences" src="images/conference.jpg">
                             <p class="name">#CONFERENCES</p>
                         </div>
                     </div>
                     <div class="row center-block">
-                        <div ng-class="eventSelect.festivals" ng-click="selectEventType(festivals)" class="category-card col-xs-3">
-                            <img class="btn-image" src="images/festival.jpg">
+                        <div ng-click="selectEventType('festivals')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.festivals" src="images/festival.jpg">
                             <p class="name">#FESTIVALS</p>
                         </div>
-                        <div ng-class="eventSelect.food" ng-click="selectEventType(food)" class="category-card col-xs-3">
-                            <img class="btn-image" src="images/foodandwine.jpg">
+                        <div ng-click="selectEventType('food')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.food" src="images/foodandwine.jpg">
                             <p class="name">#FOOD&amp;WINE</p>
                         </div>
-                        <div ng-class="eventSelect.family" ng-click="selectEventType(family)" class="category-card col-xs-3">
-                            <img class="btn-image" src="images/kidsandfamily.jpg">
+                        <div ng-click="selectEventType('family')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.family" src="images/kidsandfamily.jpg">
                             <p class="name">#FAMILY</p>
                         </div>
                     </div>
                     <div class="row center-block">
-                        <div ng-class="eventSelect.nightlife" ng-click="selectEventType(nightlife)" class="category-card col-xs-3">
-                            <img class="btn-image" src="images/nightlife.jpg">
+                        <div ng-click="selectEventType('nightlife')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.nightlife" src="images/nightlife.jpg">
                             <p class="name">#NIGHTLIFE&amp;SINGLES</p>
                         </div>
-                        <div ng-class="eventSelect.performingArts" ng-click="selectEventType(performingArts)" class="category-card col-xs-3">
-                            <img class="btn-image" src="images/performingarts.jpg">
+                        <div ng-click="selectEventType('performingArts')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.performingArts" src="images/performingarts.jpg">
                             <p class="name">#PERFORMING-ARTS</p>
                         </div>
-                        <div ng-class="eventSelect.sports" ng-click="selectEventType(sports)" class="category-card col-xs-3">
-                            <img class="btn-image" src="images/sports.jpg">
+                        <div ng-click="selectEventType('sports')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.sports" src="images/sports.jpg">
                             <p class="name">#SPORTS</p>
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-info submit-event center-block" ng-click="submit">Submit</button>
+                <button class="submit-event center-block" ng-click="submit()">Submit</button>
             </div>
         </div>
     </div>
