@@ -1,0 +1,77 @@
+#register {
+    background: url("https://images.unsplash.com/photo-1458053688450-eef5d21d43b3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=bdb6035d75193f69747c10857d5ec4d1") fixed;
+    background-size: cover;
+    display: table;
+    height: 800px;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#login {
+    background: url("https://images.unsplash.com/photo-1458053688450-eef5d21d43b3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=bdb6035d75193f69747c10857d5ec4d1") fixed;
+    background-size: cover;
+    display: table;
+    height: 800px;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+form {
+    width: 300px;
+    margin: 0 auto;
+}
+
+form.login input,
+form.login input {
+    width: 100%;
+    margin: 0;
+    padding: 5px 10px;
+    background: 0;
+    border: 0;
+    border-bottom: 2px solid #FFFFFF;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+    outline: 0;
+    padding-top: 15px;
+    font-family: 'Amatic SC', cursive;
+    padding: 20px;
+}
+
+form.login input[type="submit"] {
+    width: 100%;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-top: 46px;
+    font-weight: 600;
+    cursor: pointer;
+    border: white;
+}
+
+h2 {
+    font-size: 40px;
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+    color: white;
+}
+
+hr {
+    width: 40%;
+}
+
+#register {
+    padding-top: 70px;
+}
+
+#login {
+    padding-top: 100px;
+}
