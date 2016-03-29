@@ -4,7 +4,11 @@ var mongoose = require('mongoose'),
 var eventSchema = new Schema({
     _id: String,
     date: Date,
-    user_id: Schema.Types.ObjectId
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
+    }
 })
 
 var Event = mongoose.model('Event', eventSchema);

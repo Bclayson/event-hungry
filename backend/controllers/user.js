@@ -2,7 +2,8 @@ var mongoose = require('mongoose'),
     express = require('express'),
     User = require('../models/user'),
     _ = require('underscore-node'),
-    jwt = require('jsonwebtoken');
+    jwt = require('jsonwebtoken'),
+    expressJwt = require("express-jwt");
 
 var userRouter = express.Router();
 
@@ -35,7 +36,7 @@ userRouter.route('/login')
     .post(function (req, res) {
         var username = req.body.username,
             password = req.body.password;
-        User.findOne({username: username}).then(function (err, user) {
+        User.findOne({username: username}, function (err, user) {
             if (!user) {
                 res.status(401).json({success: false, message: "User with the provided username was not found"})
             } else {

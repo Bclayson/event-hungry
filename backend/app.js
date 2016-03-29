@@ -25,5 +25,6 @@ app.get('/', function (req, res) {
     res.send('sup homie!!')
 })
 
-app.use('/', userRouter);
-app.use('/event', eventRouter);
+app.use('/api', expressJwt({secret: config.secret}));
+app.use('/auth', userRouter);
+app.use('/api/event', eventRouter);
