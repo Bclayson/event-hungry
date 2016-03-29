@@ -9,6 +9,13 @@ angular.module('myApp.view1', ['ngRoute'])
     });
 }])
 
-.controller('View1Ctrl', [function () {
-
+.controller('View1Ctrl', ['$scope', "eventfulService", function ($scope, eventfulService) {
+    $scope.location = undefined;
+    $scope.eventType = undefined;
+    $scope.search = function () {
+        eventfulService.location = $scope.location;
+        eventfulService.location = $scope.eventType;
+        $location.path(['/events']);
+        
+    }
 }]);
