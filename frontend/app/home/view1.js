@@ -10,5 +10,27 @@ angular.module('myApp.view1', ['ngRoute'])
 }])
 
 .controller('View1Ctrl', [function () {
-
+    
+    var eventSelect = {
+        comedy: undefined,
+        concerts: undefined,
+        conferences: undefined,
+        festivals: undefined,
+        food: undefined,
+        family: undefined,
+        nightlife: undefined,
+        performingArts: undefined,
+        sports: undefined
+    }
+    
+    $scope.eventSelect = eventSelect;
+    
+    $scope.selectEventType = function (type) {
+        $scope.eventSelect = _.mapObject(eventSelect, function (value, key) {
+            if (key == type) {
+               return "btn-image:focus" //no idea if this is right.
+            }
+        })
+    }
+    
 }]);
