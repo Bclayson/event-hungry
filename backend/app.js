@@ -20,10 +20,10 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(middleware.genericErrorHandler)
 
 app.get('/', function (req, res) {
     res.send('sup homie!!')
 })
-app.use('/user', userRouter);
+
+app.use('/', userRouter);
 app.use('/event', eventRouter);

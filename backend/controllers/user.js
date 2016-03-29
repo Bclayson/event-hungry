@@ -1,14 +1,33 @@
 var mongoose = require('mongoose'),
     express = require('express'),
-    User = require('../models/user');
+    User = require('../models/user'),
+    _ = require('underscore-node'),
+    jwt = require('jsonwebtoken');
 
 var userRouter = express.Router();
+
+function hasEmail (users, email) {
+    return _isEmpty(_.where(users, {email: email}))
+}
 
 userRouter.route('/signup')
     .post(function (req, res) {
         var newUser = req.body;
-        User.find({username: newUser.username}, function (error) {
-
+        User.find({username: newUser.username}, function (err, users) {
+            if (err) res.status(500).send(err);
+            if (!_.isEmpty(users)) {
+                if (hasEmail(users, newUser.email)) {
+                    res.status(401).send({success: false, message: 'User with that username and email already exists'})
+                } else {
+                    res.status(401).send({success:false, message: 'Someone already has that username. Try another.'})
+                }
+            } else {
+                User.create(newUser, function (err, createdUser) {
+                    if (err) res.status(500).send(err);
+                    var token = jwt.sign(createdUser, config.secret, {expiresIn: '24h'})
+                    res.send({token: token, success: true, message: "JWt's authentication"})
+                })
+            }
         })
     })
 
@@ -28,6 +47,11 @@ userRouter.route('/login')
                 }
             }
         })
+    })
+
+userRouter.route('/user')
+    .put(function (req, res) {
+        User.findById()
     })
 
 
