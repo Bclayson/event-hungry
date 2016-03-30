@@ -9,7 +9,43 @@ angular.module('myApp.view1', ['ngRoute'])
     });
 }])
 
-.controller('View1Ctrl', ['$scope', "eventfulService", function ($scope, eventfulService) {
+.controller('View1Ctrl', ['$scope', function ($scope) {
+
+    var eventSelect = {
+        comedy: undefined,
+        concerts: undefined,
+        conferences: undefined,
+        festivals: undefined,
+        food: undefined,
+        family: undefined,
+        nightlife: undefined,
+        performingArts: undefined,
+        sports: undefined
+    }
+
+    $scope.eventSelect = eventSelect;
+
+    $scope.selectEventType = function (type) {
+        $scope.eventSelect = _.mapObject(eventSelect, function (value, key) {
+            if (key == type) {
+                return "btn-image"
+            }
+        })
+        console.log($scope.eventSelect)
+    }
+
+    $scope.submit = function (location, eventType) {
+        
+    }
+    
+    $scope.goToLogin = function () {
+        
+    }
+    
+    $scope.goToRegister = function () {
+        
+    }
+    
     $scope.location = undefined;
     $scope.eventType = undefined;
     $scope.search = function () {
