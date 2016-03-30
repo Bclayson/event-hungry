@@ -38,12 +38,5 @@ angular.module('myApp.view1', ['ngRoute'])
         
     }
     
-    $scope.goToLogin = function () {
-        
-    }
-    
-    $scope.goToRegister = function () {
-        
-    }
     
 }]);
