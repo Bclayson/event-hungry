@@ -1,5 +1,6 @@
 angular
 	.module('myApp.ajax', [])
+
     .service('eventfulService', ["$http", function ($http){
         var self = this;
         self.location = "provo";
@@ -28,6 +29,21 @@ angular
                 }
             }).then(function (response){
                 return console.log(response.data)
+            })
+        }
+    }])
+
+    .service("eventStorageService", ["$http","$sessionStorage", function ($http, $sessionStorage){
+        this.baseUrl = "http://localhost:3000/auth"
+        var config = {
+                headers: {
+                Authorization: "Bearer" + $sessionStorage.token
+                }   
+            }
+        this.createUser = function (userName, password, email) {
+            $http.post(baseUrl + "/signup").then(function (response){
+                $sessionStorage.token = response.token;
+                }
             })
         }
     }])

@@ -6,7 +6,8 @@ angular.module('myApp', [
   'myApp.view1',
   'myApp.events',
   'myApp.version',
-  'myApp.ajax'
+  'myApp.ajax',
+  'ngStorage'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/view1'});
