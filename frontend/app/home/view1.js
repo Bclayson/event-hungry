@@ -9,7 +9,7 @@ angular.module('myApp.view1', ['ngRoute'])
     });
 }])
 
-.controller('View1Ctrl', ['$scope', function ($scope) {
+.controller('View1Ctrl', ['$scope', 'eventfulService', '$location', function ($scope, eventfulService, $location) {
 
     var eventSelect = {
         comedy: undefined,
@@ -31,20 +31,17 @@ angular.module('myApp.view1', ['ngRoute'])
                 return "btn-image"
             }
         })
-        console.log($scope.eventSelect)
+        $scope.eventType = type;
     }
 
-    $scope.submit = function (location, eventType) {
-        
-    }
-    
-    
+
     $scope.location = undefined;
     $scope.eventType = undefined;
     $scope.search = function () {
-        eventfulService.location = $scope.location;
-        eventfulService.location = $scope.eventType;
-        $location.path(['/events']);
-        
+        if ($scope.location != undefined && $scope.eventType != undefined) {
+            eventfulService.location = $scope.location;
+            eventfulService.location = $scope.eventType;
+            $location.path(['/events']);
+        }
     }
 }]);

@@ -2,8 +2,8 @@ angular
 	.module('myApp.ajax', [])
     .service('eventfulService', ["$http", function ($http){
         var self = this;
-        self.location = undefined;
-        self.eventType = undefined;
+        self.location = "provo";
+        self.eventType = "concerts";
         var baseUrl = 'http://api.eventful.com/json/events/search/';
         
         this.eventSearch = function () {
