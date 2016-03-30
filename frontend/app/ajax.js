@@ -1,6 +1,19 @@
 angular
 	.module('myApp.ajax', [])
 
+    .config(["$routeProvier", function ($routeProvider){
+        $routeProvider
+        .when('/favorites', {
+            templateUrl: "favorite.html",
+            controller: "FavCtrl",
+            resolve: {
+                loggedIn: function () {
+                    
+                }
+            }
+        })
+    }])
+
     .service('eventfulService', ["$http", function ($http){
         var self = this;
         self.location = "provo";
@@ -32,7 +45,6 @@ angular
             })
         }
     }])
-
     .service("eventStorageService", ["$http","$sessionStorage", function ($http, $sessionStorage){
         this.baseUrl = "http://localhost:3000/auth"
         var config = {
@@ -44,6 +56,6 @@ angular
             $http.post(baseUrl + "/signup").then(function (response){
                 $sessionStorage.token = response.token;
                 }
-            })
+            )}
         }
     }])
