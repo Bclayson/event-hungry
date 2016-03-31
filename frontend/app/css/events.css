@@ -41,13 +41,12 @@ body {
 }
 
 .panel-heading {
-    height: 100px;
+    height: auto;
 }
 
 .panel {
-    height: 380px;
+    height: 500px;
     opacity: .80;
 }
-
 
 
