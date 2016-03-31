@@ -1,7 +1,7 @@
 angular
 	.module('myApp.ajax', [])
 
-    .config(["$routeProvier", function ($routeProvider){
+    .config(["$routeProvider", function ($routeProvider){
         $routeProvider
         .when('/favorites', {
             templateUrl: "favorite.html",
@@ -65,7 +65,7 @@ angular
         this.user = undefined;
         var config = {
                 headers: {
-                Authorization: "Bearer" + tokenService.getToken();
+                Authorization: "Bearer" + tokenService.getToken()
                 }   
             }
         this.createUser = function (userName, password, email) {
