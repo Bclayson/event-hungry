@@ -1,0 +1,14 @@
+<div class="col-sm-3" ng-repeat="event in events">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="event-title">{{event.title}}</h2>
+        </div>
+        <div class="panel-body lead">
+            <p class="event-time">When: {{formatDate(event.start_time)}}</p>
+            <p class="event-location">Where: {{event.venue_name}}</p>
+            <button class="button-favorites center-block" ng-click=addToFavorites()>Add To Favorites</button>
+            <br>
+            <a class="text-center" href="{{event.url}}" target="_blank">Click For More Info</a>
+        </div>
+    </div>
+</div>

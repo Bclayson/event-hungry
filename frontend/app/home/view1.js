@@ -40,7 +40,7 @@ angular.module('myApp.view1', ['ngRoute'])
     $scope.search = function () {
         if ($scope.location != undefined && $scope.eventType != undefined) {
             eventfulService.location = $scope.location;
-            eventfulService.location = $scope.eventType;
+            eventfulService.eventType = $scope.eventType;
             $location.path(['/events']);
         }
     }

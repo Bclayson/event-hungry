@@ -13,6 +13,11 @@ angular.module('myApp.events', ['ngRoute'])
     $scope.eventType = eventfulService.eventType;
     
     eventfulService.eventSearch().then(function (data) {
-        $scope.events = data;
+        $scope.events = data.events.event;
+        console.log($scope.events)
     })
+    
+    
+    
+    
 }]);
