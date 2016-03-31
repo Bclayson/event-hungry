@@ -1,18 +1,7 @@
 angular
 	.module('myApp.ajax', [])
 
-    .config(["$routeProvier", function ($routeProvider){
-        $routeProvider
-        .when('/favorites', {
-            templateUrl: "favorite.html",
-            controller: "FavCtrl",
-            resolve: {
-                loggedIn: function () {
-                    
-                }
-            }
-        })
-    }])
+    
 
     .service('eventfulService', ["$http", function ($http){
         var self = this;
@@ -58,4 +47,4 @@ angular
                 }
             )}
         }
-    }])
+])

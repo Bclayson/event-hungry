@@ -7,7 +7,6 @@ angular.module('myApp', [
   'myApp.events',
   'myApp.version',
   'myApp.ajax',
-  'ngStorage',
   'favorites'
 ]).
 config(['$routeProvider', function($routeProvider) {
