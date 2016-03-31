@@ -25,7 +25,7 @@ userRouter.route('/signup')
                 User.create(newUser, function (err, createdUser) {
                     if (err) res.status(500).send(err);
                     var token = jwt.sign(createdUser, config.secret, {expiresIn: '24h'})
-                    res.send({token: token, success: true, message: "JWt's authentication"})
+                    res.send({token: token, success: true, message: "JWt's authentication", user: createdUser})
                 })
             }
         })
@@ -41,7 +41,7 @@ userRouter.route('/login')
             } else {
                 if (user.password == password) {
                     var token = jwt.sign(user, config.secret, {expiresIn: "24h"});
-                    res.send({token: token, success: true, message: "JWT's authentication"})
+                    res.send({token: token, success: true, message: "JWT's authentication", user: user})
                 } else {
                     res.status(401).send({success: false, message: "Incorrect password"})
                 }

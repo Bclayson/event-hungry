@@ -1,5 +1,19 @@
 angular
 	.module('myApp.ajax', [])
+
+    .config(["$routeProvider", function ($routeProvider){
+        $routeProvider
+        .when('/favorites', {
+            templateUrl: "favorite.html",
+            controller: "FavCtrl",
+            resolve: {
+                loggedIn: function () {
+                    
+                }
+            }
+        })
+    }])
+
     .service('eventfulService', ["$http", function ($http){
         var self = this;
         self.location = "provo";
@@ -31,3 +45,46 @@ angular
             })
         }
     }])
+
+    .service("TokenService", ["$sessionStorage", function ($sessionStorage){
+        this.setToken = function (token) {
+         $sessionStorage.token = token;   
+        }
+        
+        this.getToken = function () {
+            return $sessionStorage.token;
+        }
+        
+        this.removeToken = function () {
+            delete $sessionStorage.token;
+        }
+    }])
+
+    .service("UserService", ["$http", "TokenService", function ($http, tokenService){
+        this.baseUrl = "http://localhost:3000/auth";
+        this.user = undefined;
+        var config = {
+                headers: {
+                Authorization: "Bearer" + tokenService.getToken()
+                }   
+            }
+        this.createUser = function (userName, password, email) {
+            $http.post(baseUrl + "/signup").then(function (response){
+                TokenService.setToken(response.token);
+                this.user = response.user;
+                }
+            )}
+        
+        this.login = function (userName, password) {
+            $http.post(baseUrl + "/login").then(function (response){
+                TokenService.setToken(response.token);
+                this.user = response.user;
+            })
+        }
+        
+        this.logout = function () {
+            TokenService.removeToken();
+        }
+        
+    }
+])

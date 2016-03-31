@@ -8,6 +8,9 @@ angular.module('myApp', [
   'myApp.version',
   'myApp.ajax',
     "MyApp.directives"
+
+  'ngStorage',
+  'favorites'
 ]).
 config(['$routeProvider', function ($routeProvider) {
     $routeProvider.otherwise({
