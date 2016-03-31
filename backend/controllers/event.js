@@ -3,19 +3,29 @@ var express = require('express'),
 
 var eventRouter = express.Router();
 
-eventRouter.route('/')
+eventRouter.route('/favorites')
     .get(function(req, res) {
-
+        var userId = req.user._doc._id;
+        var now = new Date();
+        Event.find({user: userId, date: {$gte: now}}, function (err, events) {
+            if (err) {
+                res.status(500).send(err)
+            } else {
+                res.send(events)
+            }
+        })
     })
     .post(function(req, res) {
-        var newEvent = req.body
-        newEvent.user = req.user
-        Event.create(newEvent, function (err, createdEvent) {
+        console.log(req.user)
+        req.body.date = new Date(req.body.date)
+        var event = new Event(req.body);
+        event.user = req.user._doc._id
+        event.save(function (err, newEvent) {
             if (err) {
                 res.status(500).send(err);
             }
             else {
-                res.send({success: true, event: createdEvent})
+                res.send({success: true, event: newEvent})
             }
         })
     })
