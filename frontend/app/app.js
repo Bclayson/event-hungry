@@ -5,12 +5,12 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.view1',
   'myApp.events',
+  'myApp.favorites',
   'myApp.version',
   'myApp.ajax',
-    "MyApp.directives",
+  "MyApp.directives",
+  'ngStorage'
 
-  'ngStorage',
-  'favorites'
 ]).
 config(['$routeProvider', function ($routeProvider) {
     $routeProvider.otherwise({

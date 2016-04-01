@@ -112,10 +112,14 @@ angular
         }
 
         self.getFavorites = function () {
-            return $http.get(config.eventsUrl + 'favorites', Config.config).then(function (response) {
-                var eventMeta = response.data;
-                var q = eventMeta.map(function (event) {
+            return $http.get(Config.eventsUrl + 'favorites', Config.config).then(function (response) {
+                var favoriteEvents = response.data;
+                var eventPromises = favoriteEvents.map(function (event) {
                     return eventfulService.getOne(event._id)
+                })
+
+                return $q.all(eventPromises).then(function (response) {
+                    return response.data
                 })
             })
         }
