@@ -7,7 +7,7 @@ angular.module('myApp', [
   'myApp.events',
   'myApp.version',
   'myApp.ajax',
-    "MyApp.directives"
+    "MyApp.directives",
 
   'ngStorage',
   'favorites'
