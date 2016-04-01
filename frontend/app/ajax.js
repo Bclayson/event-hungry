@@ -34,6 +34,7 @@ angular
                 return res.data;
               })    
         }
+
         this.getOne = function (id) {
            return $http.get(baseUrl, {
                 params: {
@@ -60,31 +61,62 @@ angular
         }
     }])
 
-    .service("UserService", ["$http", "TokenService", function ($http, tokenService){
-        this.baseUrl = "http://localhost:3000/auth";
-        this.user = undefined;
-        var config = {
+    .service('Config', ['TokenService', function (TokenService) {
+        var self = this;
+        var host = "http://localhost:3000/";
+        this.authUrl = host + 'auth/'
+        this.eventsUrl = host + 'api/';
+        this.config = function () {
+            return {
                 headers: {
-                Authorization: "Bearer" + tokenService.getToken()
-                }   
+                    Authorization: "Bearer" + tokenService.getToken()
+                }
             }
+        }
+    }])
+
+    .service("UserService", ["$http", "TokenService", 'Config', function ($http, TokenService, Config){
+        this.user = undefined;
+
         this.createUser = function (userName, password, email) {
-            $http.post(baseUrl + "/signup").then(function (response){
+            var newUser = {username: userName, password: password, email: email}
+            $http.post(Config.authUrl + 'signup', newUser).then(function (response){
                 TokenService.setToken(response.token);
                 this.user = response.user;
                 }
             )}
         
         this.login = function (userName, password) {
-            $http.post(baseUrl + "/login").then(function (response){
+            var credentials = {username: userName, password: password};
+            return $http.post(config.authUrl + "login", credentials).then(function (response){
                 TokenService.setToken(response.token);
                 this.user = response.user;
+                return true
+            }, function (err) {
+                return false
             })
         }
         
         this.logout = function () {
             TokenService.removeToken();
         }
-        
-    }
-])
+    }])
+
+    .service('FavoritesService', ["$http", "$q", 'Config', function ($http, $q, Config) {
+        var self = this;
+
+        self.addToFavorites = function (event) {
+            return $http.post(config.eventsUrl, event, Config.config).then(function (response) {
+                return response.data
+            })
+        }
+
+        self.getFavorites = function () {
+            return $http.get(config.eventsUrl + 'favorites', Config.config).then(function (response) {
+                var eventMeta = response.data;
+                var q = eventMeta.map(function (event) {
+                    return eventfulService.getOne(event._id)
+                })
+            })
+        }
+    }])

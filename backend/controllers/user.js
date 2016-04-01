@@ -49,15 +49,4 @@ userRouter.route('/login')
         })
     })
 
-//userRouter.route('/user')
-//    .put(function (req, res) {
-//        var userInfo = req.body._id
-//        User.findById(userInfo._id, function (err, user) {
-//            user.email = userInfo.email;
-//            user.save();
-//            res.send({success: true, message: "User email was successfully updated"})
-//        })
-//    })
-
-
 module.exports = userRouter;
