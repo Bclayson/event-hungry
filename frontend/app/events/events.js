@@ -9,10 +9,10 @@ angular.module('myApp.events', ['ngRoute'])
       });
     }])
 
-    .controller('EventCtrl', ['$scope', 'eventfulService', function($scope, eventfulService) {
-        $scope.eventType = eventfulService.eventType;
+    .controller('EventCtrl', ['$scope', 'EventfulService', function($scope, EventfulService) {
+        $scope.eventType = EventfulService.eventType;
 
-        eventfulService.eventSearch().then(function (data) {
+        EventfulService.eventSearch().then(function (data) {
             $scope.events = data.events.event;
             console.log($scope.events)
         })
