@@ -1,10 +1,9 @@
 <!-- home section -->
-
 <div id="home" class="home">
-
     <div class="text-vcenter">
         <h1>#EventHungry</h1>
-        <a href="#" class="btn btn-default btn-lg" id="button">Login Here</a>
+        <a href="#/login" class="btn btn-default btn-lg" id="button">Login</a>
+        <a href="#/register" class="btn btn-default btn-lg" id="button">Sign Up</a>
     </div>
 </div>
 
@@ -21,24 +20,8 @@
             <div class="row">
                 <div class="col-sm-12">
                     <video id="movie" src="images/crowd.mov" height="auto" width="100%" autoplay loop>
+                        <!--
                         <div id="videoText" class="row">
-
-                            <h1 id="aboutTitle">Meet Us</h1>
-                            <hr>
-                            <p class="lead"><b>EventHungry is based in the Silicon Slopes of Utah. We don't think it should be hard to connect and search for events going on in your area.</b></p>
-                            <p class="lead"><b>Together we're connecting people worldwide to attend events.</b></p>
-                            <p class="lead"><b>Stay EventHungry my friend!</b></p>
-                        </div>
-                    </video>
-
-                </div>
-
-
-                <div class="col-sm-9 text-center">
-
-                    <!--
-                        <div id="videoText" class="row">
-
                             <h1 id="aboutTitle">Meet Us</h1>
                             <hr>
                             <p class="lead"><b>EventHungry is based in the Silicon Slopes of Utah. We don't think it should be hard to connect and search for events going on in your area.</b></p>
@@ -46,6 +29,23 @@
                             <p class="lead"><b>Stay EventHungry my friend!</b></p>
                         </div>
 -->
+                    </video>
+
+                </div>
+
+
+                <div class="col-sm-9 text-center">
+
+
+                    <div id="videoText" class="row">
+
+                        <h1 id="aboutTitle">Meet Us</h1>
+
+                        <p class="lead"><b> EventHungry is based in the Silicon Slopes of Utah. We don't think it should be hard to connect and search for events going on in your area.</b></p>
+                        <p class="lead"><b>Together we're connecting people worldwide to attend events.</b></p>
+                        <p class="lead"><b>Stay EventHungry my friend!</b></p>
+                    </div>
+
 
 
                 </div>
@@ -60,12 +60,64 @@
 
 <!-- list section -->
 
-<div id="catergories" class="pad-section">
+<div id="categories" class="pad-section">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
                 <h2 id="listTitle"> Explore by category</h2>
                 <hr>
+                <div class="container">
+                    <div class="row center-block">
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control center-block" ng-model="location" placeholder="Enter city or zipcode">
+                        </div>
+                    </div>
+                    <div class="row center-block">
+                        <div ng-click="selectEventType('comedy')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.comedy" src="images/comedysmall.jpg">
+                            <p class="name">#COMEDY</p>
+                        </div>
+                        <div ng-click="selectEventType('concerts')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.concerts" src="images/concertphoto.jpg">
+                            <p class="name">#CONCERTS</p>
+                        </div>
+                        <div ng-click="selectEventType('conferences')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.conferences" src="images/conference.jpg">
+                            <p class="name">#CONFERENCES</p>
+                        </div>
+                    </div>
+                    <div class="row center-block">
+                        <div ng-click="selectEventType('festivals')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.festivals" src="images/festival.jpg">
+                            <p class="name">#FESTIVALS</p>
+                        </div>
+                        <div ng-click="selectEventType('food')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.food" src="images/foodandwine.jpg">
+                            <p class="name">#FOOD&amp;WINE</p>
+                        </div>
+                        <div ng-click="selectEventType('family')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.family" src="images/kidsandfamily.jpg">
+                            <p class="name">#FAMILY</p>
+                        </div>
+                    </div>
+                    <div class="row center-block">
+                        <div ng-click="selectEventType('nightlife')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.nightlife" src="images/nightlife.jpg">
+                            <p class="name">#NIGHTLIFE&amp;SINGLES</p>
+                        </div>
+                        <div ng-click="selectEventType('performingArts')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.performingArts" src="images/performingarts.jpg">
+                            <p class="name">#PERFORMING-ARTS</p>
+                        </div>
+                        <div ng-click="selectEventType('sports')" class="category-card col-xs-3">
+                            <img class="type-image" ng-class="eventSelect.sports" src="images/sports.jpg">
+                            <p class="name">#SPORTS</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="submit-event center-block" ng-click="search()">Submit</button>
             </div>
         </div>
     </div>
@@ -81,7 +133,7 @@
 
 <div id="use" class="pad-section">
     <div class="containter">
-        <h2 id="useTitle" class="text-center">Behold the <b>REASONS</b> why to use EventHungry</h2>
+        <h2 id="useTitle" class="text-center">Behold the <b>REASONS</b> to use EventHungry</h2>
         <hr>
 
 
@@ -149,23 +201,29 @@
                 <br>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="profile"><img class="img-rounded" src="images/image3.PNG" alt="profile" style="width:200px; height:330px" />
                     <br>
                     <center>Camryn Muir</center>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="profile"><img class="img-rounded" src="images/sarah.jpg" alt="profile" style="width:200px; height:330px" />
                     <br>
                     <center>Sarah Townsley</center>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="profile"><img class="img-rounded" src="images/gavin.jpg" alt="profile" style="width:200px; height:330px" />
 
                     <br>
                     <center>Gavin Brown</center>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="profile"><img class="img-rounded" src="images/realbob.jpg" alt="profile" style="width:200px; height:330px" />
+                    <br>
+                    <center>Bobby Clayson</center>
                 </div>
             </div>
         </div>
@@ -180,7 +238,7 @@
 
 <footer>
     <p class="text-right"> Copyright &copy; 2016</p>
-    <p class="text-right">Made by Camryn Muir | Sarah Townsley | Gavin Brown</p>
+    <p class="text-right">Made by Camryn Muir | Sarah Townsley | Gavin Brown | Bobby Clayson</p>
 </footer>
 
 
