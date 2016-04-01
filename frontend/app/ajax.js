@@ -34,6 +34,7 @@ angular
                 return res.data;
               })    
         }
+
         this.getOne = function (id) {
            return $http.get(baseUrl, {
                 params: {
@@ -60,7 +61,7 @@ angular
         }
     }])
 
-    .service('Config', ['tokenService', function (tokenService) {
+    .service('Config', ['TokenService', function (TokenService) {
         var self = this;
         var host = "http://localhost:3000/";
         this.authUrl = host + 'auth/'
@@ -74,7 +75,7 @@ angular
         }
     }])
 
-    .service("UserService", ["$http", "TokenService", 'Config', function ($http, tokenService, Config){
+    .service("UserService", ["$http", "TokenService", 'Config', function ($http, TokenService, Config){
         this.user = undefined;
 
         this.createUser = function (userName, password, email) {
@@ -101,7 +102,7 @@ angular
         }
     }])
 
-    .service('FavoritesService', ["$http", "$q" 'Config', function ($http, $q, Config) {
+    .service('FavoritesService', ["$http", "$q", 'Config', function ($http, $q, Config) {
         var self = this;
 
         self.addToFavorites = function (event) {
@@ -111,10 +112,11 @@ angular
         }
 
         self.getFavorites = function () {
-            var q = []
-
             return $http.get(config.eventsUrl + 'favorites', Config.config).then(function (response) {
-
+                var eventMeta = response.data;
+                var q = eventMeta.map(function (event) {
+                    return eventfulService.getOne(event._id)
+                })
             })
         }
     }])
