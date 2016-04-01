@@ -1,10 +1,12 @@
-var app = angular.module("EventHungry", ['ngRoute']);
+var app = angular.module("MyApp.register", ['ngRoute']);
 
-app.config(function ($routeProvider) {
-            $routeProvider.when('/register', {
-                    templateUrl: "register/register.html",
-                    controller: "MainController",
-                })
-                .otherwise({
-                    redirectTo: "/",
-                })
+app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/register', {
+        templateUrl: "register/register.html",
+        controller: "RegisterController"
+    })
+}]);
+
+app.controller("RegisterController", ['$scope', function ($scope) {
+
+}]);

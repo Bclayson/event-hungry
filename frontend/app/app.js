@@ -10,7 +10,9 @@ angular.module('myApp', [
     "MyApp.directives",
 
   'ngStorage',
-  'favorites'
+  'favorites',
+    "MyApp.login",
+    "MyApp.register"
 ]).
 config(['$routeProvider', function ($routeProvider) {
     $routeProvider.otherwise({
