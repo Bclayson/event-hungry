@@ -9,7 +9,7 @@ angular.module('myApp.view1', ['ngRoute'])
     });
 }])
 
-.controller('View1Ctrl', ['$scope', 'eventfulService', '$location', function ($scope, eventfulService, $location) {
+.controller('View1Ctrl', ['$scope', 'EventfulService', '$location', function ($scope, EventfulService, $location) {
 
     var eventSelect = {
         comedy: undefined,
@@ -39,8 +39,8 @@ angular.module('myApp.view1', ['ngRoute'])
     $scope.eventType = undefined;
     $scope.search = function () {
         if ($scope.location != undefined && $scope.eventType != undefined) {
-            eventfulService.location = $scope.location;
-            eventfulService.eventType = $scope.eventType;
+            EventfulService.location = $scope.location;
+            EventfulService.eventType = $scope.eventType;
             $location.path(['/events']);
         }
     }

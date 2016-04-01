@@ -17,15 +17,13 @@ app.listen(config.port, function () {
     console.log("App is running at http://localhost:" + config.port)
 })
 
+// Middleware
 app.use(morgan("dev"));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-app.get('/', function (req, res) {
-    res.send('sup homie!!')
-})
-
 app.use('/api', expressJwt({secret: config.secret}));
+
+// Base routes
 app.use('/auth', userRouter);
 app.use('/api/event', eventRouter);
