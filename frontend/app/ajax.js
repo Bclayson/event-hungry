@@ -106,13 +106,13 @@ angular
         var self = this;
 
         self.addToFavorites = function (event) {
-            return $http.post(config.eventsUrl, event, Config.config).then(function (response) {
+            return $http.post(Config.eventsUrl, event, Config.config).then(function (response) {
                 return response.data
             })
         }
 
         self.getFavorites = function () {
-            return $http.get(config.eventsUrl + 'favorites', Config.config).then(function (response) {
+            return $http.get(Config.eventsUrl + 'favorites', Config.config).then(function (response) {
                 var eventMeta = response.data;
                 var q = eventMeta.map(function (event) {
                     return eventfulService.getOne(event._id)

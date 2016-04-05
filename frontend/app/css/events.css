@@ -25,6 +25,7 @@ body {
     font-size: 30px;
     font-family: 'Amatic SC', cursive;
     color: black;
+    margin-top: -20px;
 }
 
 .event-photo {
@@ -33,11 +34,13 @@ body {
 }
 
 
-.button-favorites {
+#button-favorites {
     width: 220px;
     background-color: black;
     color: white;
     font-family: 'Amatic SC', cursive;
+    bottom: 40px;
+    position: absolute;
 }
 
 .panel-heading {
@@ -51,6 +54,8 @@ body {
 
 #event-url {
     color: darkblue;
+    bottom: 90px;
+    position: absolute;
 }
 
 

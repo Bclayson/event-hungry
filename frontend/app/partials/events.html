@@ -1,4 +1,4 @@
-<div class="col-sm-3" ng-repeat="event in events">
+<div class="col-sm-3" ng-repeat="event in events track by $index">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h2 class="event-title">{{event.title}}</h2>
@@ -6,7 +6,7 @@
         <div class="panel-body lead">
             <p class="event-time"><strong>When: </strong>{{formatDate(event.start_time)}}</p>
             <p class="event-location"><strong>Where: </strong>{{event.venue_name}}</p>
-            <button class="button-favorites center-block" ng-click=addToFavorites()>Add To Favorites</button>
+            <button id="button-favorites" class="center-block" ng-click="buttonClick($index)">{{name}}</button>
             <br>
             <a id="event-url" href="{{event.url}}" target="_blank">Click For More Info</a>
         </div>
