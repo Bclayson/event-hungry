@@ -1,7 +1,7 @@
 angular
 	.module('myApp.ajax', [])
 
-    .service('eventfulService', ["$http", function ($http){
+    .service('EventfulService', ["$http", function ($http){
 
         var self = this;
 
