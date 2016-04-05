@@ -36,10 +36,15 @@
         text-align: center;
         padding-top: 40px;
         font-family: 'Amatic SC', cursive;
+<<<<<<< HEAD
+        font-size: 80px;
+        color: ghostwhite;
+=======
         font-size: 40px;
         color: ghostwhite;
     }
     
     hr {
         width: 30%;
+>>>>>>> responses
     }

@@ -57,15 +57,11 @@ form.login input[type="submit"] {
     border: white;
 }
 
-h2 {
+.login-title {
     font-size: 40px;
     font-family: 'Amatic SC', cursive;
     text-align: center;
     color: white;
-}
-
-hr {
-    width: 40%;
 }
 
 #register {
@@ -74,4 +70,8 @@ hr {
 
 #login {
     padding-top: 100px;
+}
+
+p.login-warning {
+    color: red;
 }

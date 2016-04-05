@@ -3,13 +3,13 @@
 angular.module('myApp.view1', ['ngRoute'])
 
 .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/view1', {
-        templateUrl: 'home/view1.html',
-        controller: 'View1Ctrl'
+    $routeProvider.when('/home', {
+        templateUrl: 'home/home.html',
+        controller: 'HomeController'
     });
 }])
 
-.controller('View1Ctrl', ['$scope', 'eventfulService', '$location', function ($scope, eventfulService, $location) {
+.controller('HomeController', ['$scope', 'EventfulService', '$location', function ($scope, EventfulService, $location) {
 
     var eventSelect = {
         comedy: undefined,
@@ -39,8 +39,8 @@ angular.module('myApp.view1', ['ngRoute'])
     $scope.eventType = undefined;
     $scope.search = function () {
         if ($scope.location != undefined && $scope.eventType != undefined) {
-            eventfulService.location = $scope.location;
-            eventfulService.location = $scope.eventType;
+            EventfulService.location = $scope.location;
+            EventfulService.eventType = $scope.eventType;
             $location.path(['/events']);
         }
     }
