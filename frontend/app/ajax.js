@@ -80,7 +80,7 @@ angular
         
         this.login = function (userName, password) {
             var credentials = {username: userName, password: password};
-            return $http.post(config.authUrl + "login", credentials).then(function (response){
+            return $http.post(Config.authUrl + "login", credentials).then(function (response){
                 TokenService.setToken(response.token);
                 this.user = response.user;
                 return true
@@ -98,7 +98,7 @@ angular
         var self = this;
 
         self.addToFavorites = function (event) {
-            return $http.post(config.eventsUrl, event, Config.config()).then(function (response) {
+            return $http.post(Config.eventsUrl, event, Config.config()).then(function (response) {
                 return response.data
             })
         }

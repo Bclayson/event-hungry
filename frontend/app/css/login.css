@@ -71,3 +71,7 @@ form.login input[type="submit"] {
 #login {
     padding-top: 100px;
 }
+
+p.login-warning {
+    color: red;
+}

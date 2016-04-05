@@ -3,13 +3,13 @@
 angular.module('myApp.view1', ['ngRoute'])
 
 .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/view1', {
-        templateUrl: 'home/view1.html',
-        controller: 'View1Ctrl'
+    $routeProvider.when('/home', {
+        templateUrl: 'home/home.html',
+        controller: 'HomeController'
     });
 }])
 
-.controller('View1Ctrl', ['$scope', 'EventfulService', '$location', function ($scope, EventfulService, $location) {
+.controller('HomeController', ['$scope', 'EventfulService', '$location', function ($scope, EventfulService, $location) {
 
     var eventSelect = {
         comedy: undefined,
