@@ -9,7 +9,6 @@ angular.module('myApp', [
   'myApp.version',
   'myApp.ajax',
   "MyApp.directives",
-
   'ngStorage',
     "MyApp.login",
     "MyApp.register"

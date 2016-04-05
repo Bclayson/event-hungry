@@ -16,14 +16,19 @@ app.controller("RegisterController", ['$scope', 'UserService', '$location', func
     $scope.createUser = function (userName, password, email, passwordTwo) {
         if (hasAllFields(userName, password, email, passwordTwo)) {
             if (password === passwordTwo) {
-                UserService.createUser().then(function () {
-                    $location.path('/view1');
+                UserService.createUser(userName, password, email).then(function (isUserCreated) {
+                    if (isUserCreated) {
+                        $location.path('/home');
+                    } else{
+
+                    }
+
                 })
             } else {
-                $scope.passwordMessage = "Your passwords do not match."
+                $scope.badPassword = {message: "Your passwords do not match."};
             }
         } else {
-            $scope.fieldMessage = "Please fill out all fields."
+            $scope.missingFields = {message: "Please fill out all fields."};
         }
     }
 }]);
