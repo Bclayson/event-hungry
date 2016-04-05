@@ -1,11 +1,20 @@
 'use strict';
 
-angular.module("myApp.favorites", [])
+angular.module("myApp.favorites", ['myApp.ajax'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/favorites', {
             templateUrl: 'events/events.html',
-            controller: 'FavCtrl'
+            controller: 'FavCtrl',
+            resolve: {
+                loggedIn : ['$q', 'UserService', '$location', function ($q, UserService, $location) {
+                    if (UserService.isLoggedIn()) {
+                        return 'Yeah!'
+                    } else {
+                        $location.path('/home')        
+                    }
+                }]
+            }
         })
     }])
 
