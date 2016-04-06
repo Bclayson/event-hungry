@@ -10,11 +10,11 @@ angular.module('myApp', [
   'myApp.ajax',
   "MyApp.directives",
   'ngStorage',
-    "MyApp.login",
-    "MyApp.register"
+  "MyApp.login",
+  "MyApp.register"
 
-]).
-config(['$routeProvider', function ($routeProvider) {
+])
+.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.otherwise({
         redirectTo: '/home'
     });

@@ -2,10 +2,10 @@ body {
     background: url("https://snap-photos.s3.amazonaws.com/img-thumbs/960w/1C4BWK6SE4.jpg") fixed;
     background-size: cover;
     display: table;
-/*    height: 800px;*/
+    /*    height: 800px;*/
     position: relative;
     width: 100%;
-/*
+    /*
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -25,6 +25,7 @@ body {
     font-size: 30px;
     font-family: 'Amatic SC', cursive;
     color: black;
+    margin-top: -20px;
 }
 
 .event-photo {
@@ -32,8 +33,7 @@ body {
     width: auto;
 }
 
-
-.button-favorites {
+#button-favorites {
     width: 220px;
     background-color: black;
     color: white;
@@ -45,6 +45,14 @@ body {
 
 .panel-heading {
     height: auto;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    font-size: 40px;
+    padding-top: 40px;
+    color: ghostwhite;
 }
 
 .panel {
@@ -60,5 +68,3 @@ body {
     margin-bottom: 100px;
     margin-left: 25px;
 }
-
-
