@@ -84,11 +84,6 @@ angular
 
             return $http.post(Config.authUrl + "login", credentials).then(function (response){
                 TokenService.setToken(response.data.token);
-<<<<<<< HEAD
-                console.log(response)
-
-=======
->>>>>>> 43b404e6a8c2103acff5d4094c7007df4ef05e65
                 this.user = response.user;
                 return true
             }, function (err) {
