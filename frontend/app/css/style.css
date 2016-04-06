@@ -86,13 +86,11 @@
         color: navy;
         margin-top: -550px;
     }
-    
-/*
+    /*
     #videoText {
         padding: 15px;
     }
 */
-
     
     #teamTitle {
         text-align: center;
@@ -120,6 +118,7 @@
         color: black;
         font-size-adjust: 50px;
         opacity: .40;
+        padding-left: 25px;
     }
     
     #use .glyphicon {

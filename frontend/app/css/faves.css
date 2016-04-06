@@ -1,4 +1,4 @@
-    #navbar-collapse-main {
+#navbar-collapse-main {
         font-size: 20px;
     }
     
@@ -37,15 +37,10 @@
         font-family: 'Amatic SC', cursive;
         font-size: 80px;
         color: ghostwhite;
-<<<<<<< HEAD
-        font-size: 40px;
+        <<<<<<< HEAD font-size: 40px;
         color: ghostwhite;
     }
     
-    hr {
-        width: 30%;
-    }
-=======
-    }
-    
+    =======
+}
 >>>>>>> develop
