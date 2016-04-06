@@ -30,18 +30,13 @@ eventRouter.route('/favorites')
         })
     })
 
-eventRouter.get('/:id')
-    .get(function(req, res) {
 
-     })
-    .post(function(req, res) {
-
-    })
-    .put(function(req, res) {
-
-    })
+eventRouter.route('/favorites/:id')
     .delete(function(req, res) {
-
+        Event.remove({_id: req.params.id}, function (err, event) {
+            if (err) res.status(401).send(err)
+            res.send(event);
+        })
     })
 
 module.exports = eventRouter;
