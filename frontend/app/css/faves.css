@@ -32,13 +32,10 @@
         background-size: cover;
     }
     
-    h2 {
+    .favorites-header {
         text-align: center;
-        padding-top: 40px;
         font-family: 'Amatic SC', cursive;
         font-size: 80px;
-        color: ghostwhite;
-        font-size: 40px;
         color: ghostwhite;
     }
     

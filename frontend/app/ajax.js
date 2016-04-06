@@ -73,16 +73,17 @@ angular
 
         this.createUser = function (userName, password, email) {
             var newUser = {username: userName, password: password, email: email}
-            $http.post(Config.authUrl + 'signup', newUser).then(function (response){
-                TokenService.setToken(response.token);
+            return $http.post(Config.authUrl + 'signup', newUser).then(function (response){
+                TokenService.setToken(response.data.token);
                 this.user = response.user;
+                return response;
                 }
             )}
         
         this.login = function (userName, password) {
             var credentials = {username: userName, password: password};
             return $http.post(Config.authUrl + "login", credentials).then(function (response){
-                TokenService.setToken(response.token);
+                TokenService.setToken(response.data.token);
                 this.user = response.user;
                 return true
             }, function (err) {
@@ -99,7 +100,7 @@ angular
         var self = this;
 
         self.addToFavorites = function (event) {
-            return $http.post(Config.eventsUrl, event, Config.config()).then(function (response) {
+            return $http.post(Config.eventsUrl + 'favorites', event, Config.config()).then(function (response) {
                 return response.data
             })
         }
