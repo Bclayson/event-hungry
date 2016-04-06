@@ -111,6 +111,7 @@ angular
         }
 
         self.getFavorites = function () {
+
             return $http.get(Config.eventsUrl + 'favorites', Config.config()).then(function (response) {
                 var favoriteEvents = response.data;
                 var eventPromises = favoriteEvents.map(function (event) {
@@ -119,6 +120,7 @@ angular
 
                 return $q.all(eventPromises).then(function (favoriteEvents) {
                     return favoriteEvents
+
                 })
             })
         }

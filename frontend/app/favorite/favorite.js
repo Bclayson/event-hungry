@@ -1,8 +1,10 @@
 'use strict';
 
+
 angular.module("myApp.favorites", ['myApp.ajax'])
 
-    .config(['$routeProvider', function ($routeProvider) {
+
+    .config(['$routeProvider', '$sessionStorageProvider', function ($routeProvider, $sessionStorageProvider) {
         $routeProvider.when('/favorites', {
             templateUrl: 'events/events.html',
             controller: 'FavCtrl',
