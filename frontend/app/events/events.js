@@ -2,6 +2,7 @@
 
 angular.module('myApp.events', ['ngRoute'])
 
+
 .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/events', {
         templateUrl: 'events/events.html',
@@ -9,10 +10,10 @@ angular.module('myApp.events', ['ngRoute'])
     });
 }])
 
-.controller('EventCtrl', ['$scope', 'eventfulService', 'FavoritesService', function ($scope, eventfulService, FavoritesService) {
-    $scope.eventType = eventfulService.eventType;
+.controller('EventCtrl', ['$scope', 'EventfulService', 'FavoritesService', function ($scope, EventfulService, FavoritesService) {
+    $scope.eventType = EventfulService.eventType;
 
-    eventfulService.eventSearch().then(function (data) {
+    EventfulService.eventSearch().then(function (data) {
         $scope.events = data.events.event;
         console.log($scope.events)
     })
