@@ -126,4 +126,10 @@ angular
                 })
             })
         }
+        
+        self.removeFromFavorites = function (id) {
+            return $http.delete(Config.eventsUrl + 'favorites/' + id, Config.config()).then(function (response) {
+                return response;
+            })
+        }
     }])

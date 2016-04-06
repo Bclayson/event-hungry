@@ -29,4 +29,12 @@ angular.module("myApp.favorites", ['myApp.ajax'])
             $scope.favorites = events;
             console.log(events)
         })
+        
+        $scope.removeFromFavorites = function(index) {
+            var id = $scope.favorites[index].id;
+            console.log(id);
+            FavoritesService.removeFromFavorites(id).then(function () {
+                $scope.favorites.splice(index, 1);
+            })
+        }
     }])
