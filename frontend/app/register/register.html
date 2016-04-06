@@ -6,9 +6,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-               <p ng-show="passwordMessage">{{passwordMessage}}</p>
-               <p ng-show="fieldMessage">{{fieldMessage}}</p>
                 <form class="login">
+                    <p class="login-warning" ng-show="badPassword.message">{{badPassword.message}}</p>
+                    <p class="login-warning" ng-show="missingFields.message">{{missingFields.message}}</p>
+
                     <input type="text" placeholder="Username" ng-model="username"/>
                     <input type="text" placeholder="Email" ng-model="email"/>
                     <input type="password" placeholder="Password" ng-model="password"/>

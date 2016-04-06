@@ -7,7 +7,7 @@ var mongoose = require('mongoose'),
 var userRouter = express.Router();
 
 function hasEmail (users, email) {
-    return _isEmpty(_.where(users, {email: email}))
+    return _.isEmpty(_.where(users, {email: email}))
 }
 
 userRouter.route('/signup')

@@ -30,18 +30,14 @@ eventRouter.route('/favorites')
         })
     })
 
-eventRouter.get('/:id')
-    .get(function(req, res) {
 
-     })
-    .post(function(req, res) {
-
-    })
-    .put(function(req, res) {
-
-    })
+eventRouter.route('/favorites/:id')
     .delete(function(req, res) {
-
+        var userId = req.user._doc._id
+        Event.remove({_id: req.params.id, user: userId}, function (err, event) {
+            if (err) res.status(401).send(err)
+            res.send(event);
+        })
     })
 
 module.exports = eventRouter;
