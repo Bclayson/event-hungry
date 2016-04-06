@@ -33,7 +33,8 @@ eventRouter.route('/favorites')
 
 eventRouter.route('/favorites/:id')
     .delete(function(req, res) {
-        Event.remove({_id: req.params.id}, function (err, event) {
+        var userId = req.user._doc._id
+        Event.remove({_id: req.params.id, user: userId}, function (err, event) {
             if (err) res.status(401).send(err)
             res.send(event);
         })
