@@ -1,11 +1,26 @@
 'use strict';
 
-angular.module("myApp.favorites", ['ngStorage'])
 
-    .config(['$routeProvider', '$sessionStorageProvider', function ($routeProvider, $sessionStorageProvider) {
+angular.module("myApp.favorites", ['myApp.ajax'])
+
+
+    .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/favorites', {
+
             templateUrl: 'favorite/favorite.html',
-            controller: 'FavCtrl'
+            controller: 'FavCtrl',
+
+        
+            resolve: {
+                loggedIn : ['$q', 'UserService', '$location', function ($q, UserService, $location) {
+                    if (UserService.isLoggedIn()) {
+                        return 'Yeah!'
+                    } else {
+                        $location.path('/home')        
+                    }
+                }]
+            }
+
         })
     }])
 
