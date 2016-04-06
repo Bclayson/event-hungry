@@ -22,7 +22,6 @@ angular
                 }
               })
               .then(function(res) {
-                console.log(res.data);
                 return res.data;
               })    
         }
@@ -41,7 +40,7 @@ angular
 
     .service("TokenService", ["$sessionStorage", function ($sessionStorage){
         this.setToken = function (token) {
-         $sessionStorage.token = token;   
+            $sessionStorage.token = token;
         }
         
         this.getToken = function () {
@@ -97,7 +96,6 @@ angular
         }
         
         this.isLoggedIn = function () {
-            console.log(TokenService.getToken())
             return !_.isUndefined(TokenService.getToken())
         }
         
@@ -112,10 +110,14 @@ angular
             })
         }
 
-        self.getFavorites = function () {
-
+        self.getFavoritesReferences = function () {
             return $http.get(Config.eventsUrl + 'favorites', Config.config()).then(function (response) {
-                var favoriteEvents = response.data;
+                return response.data
+            })
+        }
+
+        self.getFavorites = function () {
+            return self.getFavoritesReferences().then(function (favoriteEvents ) {
                 var eventPromises = favoriteEvents.map(function (event) {
                     return EventfulService.getOne(event._id)
                 })

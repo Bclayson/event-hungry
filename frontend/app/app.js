@@ -18,8 +18,15 @@ angular.module('myApp', [
         $routeProvider.otherwise({
             redirectTo: '/home'
         });
-}])
+    }])
 
-.controller("NavController", ["$scope", "TokenService", function ($scope, TokenService) {
-    $scope.hasToken = TokenService.getToken
-                                                 }])
+    .controller("AppController", ["$scope", "TokenService", '$location', function ($scope, TokenService, $location) {
+        this.hasToken = TokenService.getToken;
+
+        this.logout = function () {
+            TokenService.removeToken()
+            if ($location.path() === '/favorites') {
+                $location.path('/home')
+            }
+        };
+     }])

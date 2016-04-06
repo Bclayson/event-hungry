@@ -13,9 +13,12 @@ angular.module('myApp.events', ['ngRoute'])
 .controller('EventCtrl', ['$scope', 'EventfulService', 'FavoritesService', function ($scope, EventfulService, FavoritesService) {
     $scope.eventType = EventfulService.eventType;
 
-    EventfulService.eventSearch().then(function (data) {
-        $scope.events = data.events.event;
-        console.log($scope.events)
+
+    FavoritesService.getFavoritesReferences().then(function (favoriteEvents) {
+        $scope.favoriteEvents = favoriteEvents;
+        EventfulService.eventSearch().then(function (data) {
+            $scope.events = data.events.event;
+        })
     })
 
     

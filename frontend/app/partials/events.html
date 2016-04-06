@@ -6,7 +6,10 @@
         <div class="panel-body lead">
             <p class="event-time"><strong>When: </strong>{{formatDate(event.start_time)}}</p>
             <p class="event-location"><strong>Where: </strong>{{event.venue_name}}</p>
-            <button id="button-favorites" class="center-block" ng-click="buttonClick($index)">{{name}}</button>
+            <div ng-switch on="isInFavorites(event.id)">
+                <button ng-switch-when="false" id="button-favorites" class="center-block" ng-click="buttonClick($index)">{{name}}</button>
+                <div ng-switch-when="true"></div>
+            </div>
             <br>
             <a id="event-url" href="{{event.url}}" target="_blank">Click For More Info</a>
         </div>
