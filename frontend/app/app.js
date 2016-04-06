@@ -14,8 +14,12 @@ angular.module('myApp', [
   "MyApp.register"
 
 ])
-.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.otherwise({
-        redirectTo: '/home'
-    });
-}]);
+    .config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.otherwise({
+            redirectTo: '/home'
+        });
+}])
+
+.controller("NavController", ["$scope", "TokenService", function ($scope, TokenService) {
+    $scope.hasToken = TokenService.getToken
+                                                 }])
