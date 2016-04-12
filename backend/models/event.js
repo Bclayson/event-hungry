@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var eventSchema = new Schema({
-    _id: String,
+    event_id: String,
     date: Date,
     user: {
         type: Schema.Types.ObjectId,

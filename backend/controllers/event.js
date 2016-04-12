@@ -3,7 +3,7 @@ var express = require('express'),
 
 var eventRouter = express.Router();
 
-eventRouter.route('/favorites')
+eventRouter.route('/')
     .get(function(req, res) {
         var userId = req.user._doc._id;
         var now = new Date();
@@ -16,7 +16,6 @@ eventRouter.route('/favorites')
         })
     })
     .post(function(req, res) {
-        console.log(req.user)
         req.body.date = new Date(req.body.date)
         var event = new Event(req.body);
         event.user = req.user._doc._id
@@ -31,10 +30,10 @@ eventRouter.route('/favorites')
     })
 
 
-eventRouter.route('/favorites/:id')
+eventRouter.route('/:id')
     .delete(function(req, res) {
         var userId = req.user._doc._id
-        Event.remove({_id: req.params.id, user: userId}, function (err, event) {
+        Event.remove({event_id: req.params.id, user: userId}, function (err, event) {
             if (err) res.status(401).send(err)
             res.send(event);
         })

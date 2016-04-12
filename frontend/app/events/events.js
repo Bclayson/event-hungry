@@ -25,9 +25,8 @@ angular.module('myApp.events', ['ngRoute'])
     $scope.addtoFavorites = function ($index) {
         
         var ourEvent = $scope.events[$index];
-        console.log(ourEvent);
         
-        FavoritesService.addToFavorites({_id: ourEvent.id, date: ourEvent.start_time}).then(function (event) {
+        FavoritesService.addToFavorites({event_id: ourEvent.id, date: ourEvent.start_time}).then(function (event) {
             console.log(event)
         });
     

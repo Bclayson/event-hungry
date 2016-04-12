@@ -70,13 +70,14 @@ angular
         this.user = undefined;
 
         this.createUser = function (userName, password, email) {
-            var newUser = {username: userName, password: password, email: email}
+            var newUser = {username: userName, password: password, email: email};
             return $http.post(Config.authUrl + 'signup', newUser).then(function (response){
-                TokenService.setToken(response.data.token);
-                this.user = response.user;
-                return response;
-                }
-            )}
+                var data = response.data;
+                TokenService.setToken(data.token);
+                this.user = data.user;
+                return this.user;
+            })
+        }
         
         this.login = function (userName, password) {
             var credentials = {username: userName, password: password};
@@ -119,7 +120,7 @@ angular
         self.getFavorites = function () {
             return self.getFavoritesReferences().then(function (favoriteEvents ) {
                 var eventPromises = favoriteEvents.map(function (event) {
-                    return EventfulService.getOne(event._id)
+                    return EventfulService.getOne(event.event_id)
                 })
 
                 return $q.all(eventPromises).then(function (favoriteEvents) {

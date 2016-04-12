@@ -26,4 +26,4 @@ app.use('/api', expressJwt({secret: config.secret}));
 
 // Base routes
 app.use('/auth', userRouter);
-app.use('/api/event', eventRouter);
+app.use('/api/event/favorites', eventRouter);

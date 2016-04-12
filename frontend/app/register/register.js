@@ -16,13 +16,10 @@ app.controller("RegisterController", ['$scope', 'UserService', '$location', func
     $scope.createUser = function (userName, password, email, passwordTwo) {
         if (hasAllFields(userName, password, email, passwordTwo)) {
             if (password === passwordTwo) {
-                UserService.createUser(userName, password, email).then(function (isUserCreated) {
-                    if (isUserCreated) {
+                UserService.createUser(userName, password, email).then(function (user) {
                         $location.path('/home');
-                    } else{
-
-                    }
-
+                }, function (err) {
+                    $scope.userNotCreated = {message: "Registration Failed: " + err}
                 })
             } else {
                 $scope.badPassword = {message: "Your passwords do not match."};
